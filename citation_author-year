@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" default-locale="en-US" version="1.0" demote-non-dropping-particle="never">
+  <info>
+    <title xml:lang="En">Journal of Environmental Nanotechnology (author-year)</title>
+    <title-short>JENT(author-year)</title-short>
+    <id>http://www.zotero.org/styles/journal-of-environmental-nanotechnology</id>
+    <link href="http://www.zotero.org/styles/journal-of-environmental-nanotechnology" rel="self"/>
+    <link href="http://www.zotero.org/styles/journal-of-environmental-nanotechnology" xml:lang="En" rel="self"/>
+    <author>
+      <name>Venkatesan Thirumal</name>
+      <email>venkatesanphy@gmail.com</email>
+      <uri>https://scholar.google.com/citations?user=7iu9fA4AAAAJ&amp;hl=en</uri>
+    </author>
+    <contributor>
+      <name>Venkatesan T</name>
+      <email>venkatesanphy@gmail.com</email>
+      <uri>https://scholar.google.com/citations?user=7iu9fA4AAAAJ&amp;hl=en</uri>
+    </contributor>
+    <category citation-format="author-date"/>
+    <category field="generic-base"/>
+    <issn>2279-0748</issn>
+    <eissn>2319-5541</eissn>
+    <summary xml:lang="En">Journal of Environmental Nanotechnology Reference Style Format (Author year) for the interdisciplinary journal.</summary>
+    <published>Venkatesan Thirumal</published>
+    <updated>2024-05-04T11:56:17+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+  <locale>
+    <terms>
+      <term name="edition" form="short">edn.</term>
+    </terms>
+  </locale>
+  <macro name="author-short">
+    <names variable="author" font-style="normal" font-weight="normal" text-decoration="none" vertical-align="baseline" delimiter=",">
+      <name form="short" font-style="normal" delimiter=" " and="text" et-al-min="3">
+        <name-part name="family" text-case="capitalize-first" suffix=" "/>
+      </name>
+      <substitute>
+        <names variable="editor" font-weight="normal" suffix=","/>
+        <names variable="translator" suffix=","/>
+      </substitute>
+      <et-al font-style="italic" font-variant="normal"/>
+      <name form="short" and="text" et-al-min="3"/>
+    </names>
+  </macro>
+  <macro name="author">
+    <names variable="author">
+      <name delimiter=" " suffix="." and="text" delimiter-precedes-last="always" initialize-with="" name-as-sort-order="all"/>
+      <label form="short" strip-periods="false" prefix=" (" suffix=")"/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="edition">
+    <choose>
+      <if is-numeric="edition">
+        <group delimiter=" ">
+          <number variable="edition" form="ordinal"/>
+          <text term="edition" form="short" strip-periods="false" suffix=","/>
+        </group>
+      </if>
+      <else>
+        <text variable="edition" strip-periods="false"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="year">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+  <macro name="title">
+    <choose>
+      <if type="book">
+        <group delimiter=", ">
+          <text variable="title"/>
+          <text macro="edition"/>
+        </group>
+      </if>
+      <else>
+        <text variable="title" strip-periods="false" font-weight="normal" suffix=", "/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="year-parenth">
+    <date variable="issued" prefix=" (" suffix=").">
+      <date-part name="year"/>
+    </date>
+  </macro>
+  <citation et-al-min="3" et-al-use-first="1" names-delimiter="" disambiguate-add-year-suffix="true">
+    <sort>
+      <key variable="issued"/>
+      <key macro="author"/>
+    </sort>
+    <layout font-style="normal" delimiter="; " prefix="(" suffix=")">
+      <group delimiter=" ">
+        <text macro="author-short" strip-periods="false"/>
+        <text macro="year" strip-periods="true"/>
+      </group>
+    </layout>
+  </citation>
+  <bibliography hanging-indent="true">
+    <sort>
+      <key macro="author"/>
+      <key variable="author" sort="ascending"/>
+    </sort>
+    <layout>
+      <group delimiter=" ">
+        <text macro="author" suffix=","/>
+        <text macro="title"/>
+        <text variable="container-title" form="short" font-style="italic" suffix=", "/>
+      </group>
+      <choose>
+        <if type="chapter paper-conference" match="any">
+          <group delimiter=" ">
+            <text term="in" text-case="capitalize-first" suffix=":"/>
+            <names variable="editor">
+              <name delimiter-precedes-last="always" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
+              <label form="short" strip-periods="true" prefix=" (" suffix=")"/>
+            </names>
+            <group delimiter=", ">
+              <text variable="container-title"/>
+              <text macro="edition"/>
+            </group>
+          </group>
+          <group delimiter=", " prefix=", ">
+            <text variable="publisher"/>
+            <text variable="publisher-place"/>
+            <group delimiter=" ">
+              <label strip-periods="true" variable="page-first"/>
+              <text variable="page"/>
+              <text macro="year-parenth"/>
+            </group>
+          </group>
+        </if>
+        <else-if type="article-journal">
+          <choose>
+            <if variable="page volume" match="all">
+              <group delimiter=" ">
+                <group>
+                  <text variable="volume" strip-periods="false" font-weight="normal"/>
+                  <text variable="issue" form="short" prefix="(" suffix="),"/>
+                </group>
+                <group delimiter=":">
+                  <text variable="page" strip-periods="false" quotes="false" font-variant="normal" font-weight="normal" suffix=" "/>
+                </group>
+              </group>
+              <text macro="year-parenth" strip-periods="false"/>
+              <text variable="DOI" prefix=" https://doi.org/"/>
+            </if>
+            <else>
+              <group prefix=". " delimiter=". ">
+                <text variable="container-title" form="short" strip-periods="true"/>
+                <text variable="DOI" prefix="https://doi.org/"/>
+                <text variable="volume"/>
+              </group>
+            </else>
+          </choose>
+        </else-if>
+        <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+          <group prefix=". " delimiter=", ">
+            <text variable="publisher" strip-periods="false" font-style="italic"/>
+            <text variable="publisher-place" strip-periods="false"/>
+            <text variable="volume"/>
+            <text variable="page"/>
+            <text macro="year-parenth"/>
+            <text variable="DOI" prefix=" https://doi.org/"/>
+          </group>
+        </else-if>
+        <else-if type="webpage post-weblog" match="any">
+          <group prefix=". " delimiter=". ">
+            <text prefix="In: " variable="container-title" form="short"/>
+            <text variable="URL"/>
+            <date variable="accessed">
+              <date-part prefix="Accessed " name="day" suffix=" "/>
+              <date-part name="month" form="short" suffix=" " strip-periods="true"/>
+              <date-part name="year"/>
+            </date>
+          </group>
+        </else-if>
+        <else-if type="thesis">
+          <group prefix=" ">
+            <text variable="genre" text-case="capitalize-all" suffix=", "/>
+            <text variable="publisher" suffix=", "/>
+            <text variable="event" suffix=" "/>
+            <text macro="year-parenth" strip-periods="false"/>
+            <text variable="URL" strip-periods="false" prefix=" "/>
+          </group>
+        </else-if>
+        <else>
+          <group prefix=". " delimiter=" ">
+            <text variable="container-title" form="short"/>
+            <group delimiter=":">
+              <text variable="volume"/>
+              <text variable="page"/>
+              <text macro="year-parenth"/>
+            </group>
+          </group>
+        </else>
+      </choose>
+      <text variable="collection-title" suffix="."/>
+    </layout>
+  </bibliography>
+</style>
